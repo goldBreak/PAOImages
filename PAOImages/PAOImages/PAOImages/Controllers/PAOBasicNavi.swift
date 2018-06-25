@@ -8,7 +8,18 @@
 
 import UIKit
 
-class PAOBasicNaviController: UINavigationController {
+
+
+
+class PAOBasicNaviController: UINavigationController,UINavigationControllerDelegate {
     //basic
     
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: PAOBasicViewController, animated: Bool) {
+        //这儿填写!
+        let dict = viewController.configDic
+        if dict != nil {
+            
+        }
+        
+    }
 }

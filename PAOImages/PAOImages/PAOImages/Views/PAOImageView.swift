@@ -8,14 +8,42 @@
 
 import UIKit
 
+@objc protocol PAOImageProtocol {
+    
+    func selfDidSelected(_ view:PAOImageView)
+    @objc optional
+    func longTagSelected(_ view: PAOImageView)
+}
 
 class PAOImageView : UIView {
     
     private var _subImage : UIImage?
     private var _selected : Bool = false
+    weak var delegate : PAOImageProtocol?
+    
     var image : UIImage? {
-        set(value){
+        set(value) {
+            
             _subImage = value
+            var size = _subImage!.size
+            size.width *= _subImage!.scale
+            size.height *= _subImage!.scale
+            
+            if size.width > frame.width || size.height > frame.height {
+                let originScale = frame.height / frame.width
+                let tempScale = _subImage!.size.height / _subImage!.size.width
+                if originScale > tempScale {
+                    //就是以宽为准
+                    size = CGSize(width: frame.width, height: tempScale * frame.width)
+                } else {
+                    //以高为准
+                    size = CGSize(width: frame.height/tempScale, height:frame.height)
+                }
+            }
+            
+            self.frame = CGRect(origin: self.frame.origin, size: size)
+            
+            //设置一下Image
             self.layer.contents = _subImage?.cgImage
         }
         get {
@@ -41,11 +69,15 @@ class PAOImageView : UIView {
         }
     }
     
-    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
-        if self.layer.contains(point) {
-            return self
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        self.selected = true
+        
+        if self.delegate != nil
+        {
+            self.delegate?.selfDidSelected(self)
         }
-        return self.superview
     }
     
     private
@@ -57,6 +89,13 @@ class PAOImageView : UIView {
         return tapgurest
     }()
     
+    lazy var longPressGuesture: UILongPressGestureRecognizer = {
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(PAOImageView.handleLongPress(recoginzer:)))
+//        longPress.minimumPressDuration = 3.0
+//        longPress.allowableMovement = 30
+        return longPress
+    }()
+    
     lazy var pinchGuesture = UIPinchGestureRecognizer(target: self, action: #selector(PAOImageView.handlePinchGuesture(recoginzer:)))
     
     var lazyFrame : CGRect = CGRect.zero
@@ -65,14 +104,31 @@ class PAOImageView : UIView {
     var isOpen = false
     
     init(image:UIImage,frame:CGRect) {
+        //创建size
         
-        super.init(frame: frame)
-    
+        var size = image.size
+        size.width *= image.scale
+        size.height *= image.scale
+        if size.width > frame.width || size.height > frame.height {
+            let originScale = frame.height / frame.width
+            let tempScale = image.size.height / image.size.width
+            if originScale > tempScale {
+                //就是以宽为准
+                size = CGSize(width: frame.width, height: tempScale * frame.width)
+            } else {
+                //以高为准
+                size = CGSize(width: frame.height/tempScale, height:frame.height)
+            }
+        }
+        super.init(frame: CGRect(origin: CGPoint.zero, size: size))
+        
+        //set frame
         self.image = image
         self.contentMode = UIViewContentMode.scaleAspectFit
         self.addGestureRecognizer(self.panGuesture)
         self.addGestureRecognizer(self.pinchGuesture)
         self.addGestureRecognizer(self.tapGuesture)
+        self.addGestureRecognizer(self.longPressGuesture)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -190,6 +246,15 @@ class PAOImageView : UIView {
         default:
             self.lazyFrame = self.frame;
             break;
+        }
+    }
+    
+    @objc func handleLongPress(recoginzer : UILongPressGestureRecognizer){
+        if recoginzer.state == UIGestureRecognizerState.ended {
+            if self.delegate != nil
+            {
+                self.delegate?.longTagSelected?(self)
+            }
         }
     }
     

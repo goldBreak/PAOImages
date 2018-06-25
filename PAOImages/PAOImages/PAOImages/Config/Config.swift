@@ -26,3 +26,9 @@ class Config {
     }() //整个导航栏高度
 }
 
+
+class StaticString {
+    
+    static let NAVI_HIDDEN = "naviHidden"
+    
+}

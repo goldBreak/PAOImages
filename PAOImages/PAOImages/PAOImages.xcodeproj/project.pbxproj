@@ -30,6 +30,7 @@
 		594EC2A6207B571900115C81 /* PAOMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594EC2A5207B571900115C81 /* PAOMessageViewController.swift */; };
 		594EC2A9207B57AD00115C81 /* PAOTopToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594EC2A8207B57AD00115C81 /* PAOTopToolView.swift */; };
 		594EC2AB207B6DD400115C81 /* PAOToolCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594EC2AA207B6DD400115C81 /* PAOToolCollectionViewCell.swift */; };
+		598E92DC20E0C2D3009F631C /* PAOEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598E92DB20E0C2D3009F631C /* PAOEditViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		594EC2A5207B571900115C81 /* PAOMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAOMessageViewController.swift; sourceTree = "<group>"; };
 		594EC2A8207B57AD00115C81 /* PAOTopToolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAOTopToolView.swift; sourceTree = "<group>"; };
 		594EC2AA207B6DD400115C81 /* PAOToolCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAOToolCollectionViewCell.swift; sourceTree = "<group>"; };
+		598E92DB20E0C2D3009F631C /* PAOEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAOEditViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				594EC2A5207B571900115C81 /* PAOMessageViewController.swift */,
+				598E92DB20E0C2D3009F631C /* PAOEditViewController.swift */,
 				5931B148207C6AA300D85DF5 /* Models */,
 				594EC2A7207B576800115C81 /* Views */,
 			);
@@ -246,8 +249,6 @@
 				592FD0862068826600AC623C /* Sources */,
 				592FD0872068826600AC623C /* Frameworks */,
 				592FD0882068826600AC623C /* Resources */,
-				C28AEAF357F78F29D6B96FDB /* [CP] Embed Pods Frameworks */,
-				71F7624D2E3FD54821A405B7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -308,21 +309,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		71F7624D2E3FD54821A405B7 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PAOImages/Pods-PAOImages-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		9EA76D1032018214B3B88BA2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -341,21 +327,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C28AEAF357F78F29D6B96FDB /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PAOImages/Pods-PAOImages-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -372,6 +343,7 @@
 				5931B145207C5DE000D85DF5 /* PAOAddString.swift in Sources */,
 				592FD0902068826600AC623C /* ViewController.swift in Sources */,
 				594EC2AB207B6DD400115C81 /* PAOToolCollectionViewCell.swift in Sources */,
+				598E92DC20E0C2D3009F631C /* PAOEditViewController.swift in Sources */,
 				594EC2A6207B571900115C81 /* PAOMessageViewController.swift in Sources */,
 				594EC27E207B492200115C81 /* UIImage+PAOImageUtils.m in Sources */,
 				592FD0B0206899AC00AC623C /* PAOImageView.swift in Sources */,

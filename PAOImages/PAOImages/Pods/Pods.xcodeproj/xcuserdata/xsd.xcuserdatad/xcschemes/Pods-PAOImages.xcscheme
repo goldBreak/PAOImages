@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '9C9B582FC694A9A5132B5FA85208B63A'
-               BlueprintName = 'Pods-PAOImages'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libPods-PAOImages.a'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "9C9B582FC694A9A5132B5FA85208B63A"
+               BlueprintName = "Pods-PAOImages"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "libPods-PAOImages.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

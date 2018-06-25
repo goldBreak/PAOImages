@@ -51,6 +51,7 @@ class PAOMessageViewController: PAOBasicViewController,toolSelectedProtocol {
             //创建一个新的item
             let imageView = PAOImageView(image: image,frame: self.contentView.bounds)
             imageView.selected = true
+            imageView.delegate = self
             self.imageViewArray.add(imageView)
             self.currentSelectedTag = self.imageViewArray.count-1
             self.contentView.addSubview(imageView)
@@ -61,7 +62,32 @@ class PAOMessageViewController: PAOBasicViewController,toolSelectedProtocol {
             self.currentSelectedImage?.image = image
         }
     }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.currentSelectedImage?.selected = false
+        self.currentSelectedTag = -1
+    }
 }
+
+extension PAOMessageViewController : PAOImageProtocol {
+    
+    func selfDidSelected(_ view: PAOImageView) {
+        if self.currentSelectedImage != nil {
+            self.currentSelectedImage?.selected = false
+        }
+        self.currentSelectedImage = view
+        self.currentSelectedTag = self.imageViewArray.indexOfObjectIdentical(to: view)
+
+        self.contentView.insertSubview(self.currentSelectedImage!, aboveSubview: self.contentView.subviews.last!)
+    }
+    
+    func longTagSelected(_ view: PAOImageView) {
+        //跳转到edit页面
+        let editImageVC = PAOEditViewController()
+        editImageVC.originImage = self.currentSelectedImage?.image
+        self.navigationController?.pushViewController(editImageVC, animated: true)
+    }
+}
+
 
 extension PAOMessageViewController:UINavigationControllerDelegate,UIImagePickerControllerDelegate {
     
