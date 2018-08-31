@@ -4,6 +4,6 @@ platform:ios,9.0
 target "PAOImages" do
 
 pod 'MBProgressHUD'
-
+pod 'SnapKit'
 end
 

@@ -11,8 +11,9 @@ import UIKit
 extension CGFloat {
 
     static func strTransfom(with str:String) -> CGFloat {
-        
-        let doubleNumber : Double = Double(str)!
+        var hexComponent : UInt32 = 0
+        Scanner(string: str).scanHexInt32(&hexComponent)
+        let doubleNumber : Double = Double(hexComponent)
         return CGFloat(doubleNumber)
     }
 }

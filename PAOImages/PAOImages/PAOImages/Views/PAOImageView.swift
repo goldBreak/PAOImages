@@ -69,7 +69,6 @@ class PAOImageView : UIView {
         }
     }
     
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         self.selected = true
@@ -91,8 +90,6 @@ class PAOImageView : UIView {
     
     lazy var longPressGuesture: UILongPressGestureRecognizer = {
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(PAOImageView.handleLongPress(recoginzer:)))
-//        longPress.minimumPressDuration = 3.0
-//        longPress.allowableMovement = 30
         return longPress
     }()
     
@@ -178,48 +175,6 @@ class PAOImageView : UIView {
             frame.origin.x += offset.x;
             frame.origin.y += offset.y;
             
-            if (offset.x > 0) {
-                //右滑,需要保证x 不能大于之前的位置
-                if (frame.origin.x > 0) {
-
-                    frame.origin.x = 0;
-                }
-            } else {
-                //左滑,需要保证x 不能小于之前的位置
-                if (frame.maxX < Config.kScreenWidth) {
-                    if (frame.origin.x < 0) {
-                        //这种情况下去做特殊处理
-                        let preOriginX = frame.size.width - Config.kScreenWidth;
-                        if (preOriginX < 0) {
-                            frame.origin.x = 0;
-                        } else {
-                            frame.origin.x = -preOriginX;
-                        }
-                    }
-                }
-            }
-            
-            if (offset.y > 0) {
-                //向下滑动 ，需要保证最大值不能超过之前的位置
-                if (frame.origin.y > 0) {
-
-                    frame.origin.y = 0;
-                }
-            } else {
-                //向上滑动，需要保证最小值不能超过之前的位置
-                if (frame.maxY < Config.kScreenHeight) {
-                    if (frame.origin.y < 0) {
-                        //这种情况下去做特殊处理
-                        let preOriginY = frame.size.height - Config.kScreenHeight;
-                        if (preOriginY < 0) {
-                            frame.origin.y = 0;
-                        } else {
-                            frame.origin.y = -preOriginY;
-                        }
-                    }
-                }
-            }
-            
             self.frame = frame;
             
         } else {
@@ -232,14 +187,13 @@ class PAOImageView : UIView {
         switch (recoginzer.state) {
         case .changed:
             //
+            var frame = self.lazyFrame;
+            frame.size.width *= recoginzer.scale;
+            frame.size.height *= recoginzer.scale;
             
-                var frame = self.lazyFrame;
-                frame.size.width *= recoginzer.scale;
-                frame.size.height *= recoginzer.scale;
-                
-                frame.origin.x += (-frame.size.width + self.lazyFrame.size.width) / 2.0;
-                frame.origin.y += (-frame.size.height + self.lazyFrame.size.height) / 2.0;
-                self.frame = frame;
+            frame.origin.x += (-frame.size.width + self.lazyFrame.size.width) / 2.0;
+            frame.origin.y += (-frame.size.height + self.lazyFrame.size.height) / 2.0;
+            self.frame = frame;
             
             break;
             

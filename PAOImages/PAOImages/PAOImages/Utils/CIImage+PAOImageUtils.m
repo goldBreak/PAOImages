@@ -583,6 +583,29 @@
     
     return filter.outputImage;
 }
+
+- (CIImage *)CILineOverlaySource {
+    
+    CIFilter *filter = [CIFilter filterWithName:@"CILineOverlay"];
+    [filter setValue:self forKey:kCIInputImageKey];
+    NSLog(@"%@",filter.attributes);
+    
+    return filter.outputImage;
+}
+
+- (CIImage *)CIBumpDistortionLinearSource {
+    
+    CIVector *centerVector = [[CIVector alloc] initWithX:self.extent.size.width/2. Y:self.extent.size.height/2.0];
+    
+    CIFilter *filter = [CIFilter filterWithName:@"CIBumpDistortionLinear"];
+    [filter setValue:self forKey:kCIInputImageKey];
+    NSLog(@"%@",filter.attributes);
+    [filter setValue:centerVector forKey:kCIInputCenterKey];
+    [filter setValue:@2.5 forKey:kCIInputAngleKey];
+    [filter setValue:@400 forKey:kCIInputRadiusKey];
+    [filter setValue:@0.6 forKey:kCIInputScaleKey];
+    return filter.outputImage;
+}
 #pragma mark - 公共模块
 - (UIImage *)dealImage {
     

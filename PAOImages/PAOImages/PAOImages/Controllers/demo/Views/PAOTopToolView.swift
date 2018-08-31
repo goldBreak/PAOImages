@@ -68,7 +68,7 @@ class PAOTopToolView: UIView,UICollectionViewDelegate,UICollectionViewDataSource
         frame.size.height -= Config.kDeviceToolStatue
         
         var layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 30, height: Config.kDeviceToolStatue)
+        layout.itemSize = CGSize(width: 50, height: Config.kDeviceToolStatue)
         layout.minimumLineSpacing = 5.0
         layout.minimumInteritemSpacing = 5.0;
         
@@ -96,7 +96,7 @@ class PAOTopToolView: UIView,UICollectionViewDelegate,UICollectionViewDataSource
     }()
     
     
-    var toolNameArrat : NSArray = ["文件","画笔","保存","撤销"] /* 撤销暂时不做！ !*/ /* 留下可扩展的空间 !*/
+    var toolNameArrat : NSArray = ["相册","相机","保存","取消选中"] /* 撤销暂时不做！ !*/ /* 留下可扩展的空间 !*/
     
     //tools
 }

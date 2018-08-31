@@ -561,6 +561,18 @@
  *  @return UIImage
  */
 - (UIImage *)edgedJudgeWithInstance:(CGFloat)inputIntensity;
+
+
+/**
+ 钢笔画
+
+ @return UIImage
+ */
+- (UIImage *)CILineOverlaySource;
+
+
+
+- (UIImage *)CIBumpDistortionLinearSource;
 #pragma mark - 公共模块
 /**
  *  @author Gaof, 16-07-20 15:07:19

@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		313B8F2FDC5AEB70DBDEA0B9 /* libPods-PAOImages.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC6039E3F2A6B8ECAF4FCC0 /* libPods-PAOImages.a */; };
+		59187B17211D31CE0007EB0D /* PAOCustomerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59187B16211D31CE0007EB0D /* PAOCustomerCollectionViewCell.swift */; };
+		59187B19211D36350007EB0D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59187B18211D36350007EB0D /* AVFoundation.framework */; };
+		59187B1B211D36650007EB0D /* PAOAVPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59187B1A211D36650007EB0D /* PAOAVPlayerViewController.swift */; };
+		59187B1D211D387D0007EB0D /* GFAVPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59187B1C211D387D0007EB0D /* GFAVPlayerView.swift */; };
+		59242D6920EC71FA009A33F6 /* PAOSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59242D6820EC71FA009A33F6 /* PAOSlider.swift */; };
+		59242D6B20ECB933009A33F6 /* PAOADTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59242D6A20ECB933009A33F6 /* PAOADTools.swift */; };
 		592FD08E2068826600AC623C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592FD08D2068826600AC623C /* AppDelegate.swift */; };
 		592FD0902068826600AC623C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592FD08F2068826600AC623C /* ViewController.swift */; };
 		592FD0932068826600AC623C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 592FD0912068826600AC623C /* Main.storyboard */; };
@@ -37,6 +43,12 @@
 		3243408F72AB6DCBB1FD3300 /* Pods-PAOImages.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PAOImages.release.xcconfig"; path = "Pods/Target Support Files/Pods-PAOImages/Pods-PAOImages.release.xcconfig"; sourceTree = "<group>"; };
 		3AC6039E3F2A6B8ECAF4FCC0 /* libPods-PAOImages.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PAOImages.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		47F11D6BCEB948F03363B20A /* Pods-PAOImages.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PAOImages.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PAOImages/Pods-PAOImages.debug.xcconfig"; sourceTree = "<group>"; };
+		59187B16211D31CE0007EB0D /* PAOCustomerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAOCustomerCollectionViewCell.swift; sourceTree = "<group>"; };
+		59187B18211D36350007EB0D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		59187B1A211D36650007EB0D /* PAOAVPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAOAVPlayerViewController.swift; sourceTree = "<group>"; };
+		59187B1C211D387D0007EB0D /* GFAVPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAVPlayerView.swift; sourceTree = "<group>"; };
+		59242D6820EC71FA009A33F6 /* PAOSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAOSlider.swift; sourceTree = "<group>"; };
+		59242D6A20ECB933009A33F6 /* PAOADTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAOADTools.swift; sourceTree = "<group>"; };
 		592FD08A2068826600AC623C /* PAOImages.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PAOImages.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		592FD08D2068826600AC623C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		592FD08F2068826600AC623C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59187B19211D36350007EB0D /* AVFoundation.framework in Frameworks */,
 				313B8F2FDC5AEB70DBDEA0B9 /* libPods-PAOImages.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -87,6 +100,14 @@
 				3243408F72AB6DCBB1FD3300 /* Pods-PAOImages.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		59242D6420EC6B6A009A33F6 /* CustomerPods */ = {
+			isa = PBXGroup;
+			children = (
+				59242D6820EC71FA009A33F6 /* PAOSlider.swift */,
+			);
+			path = CustomerPods;
 			sourceTree = "<group>";
 		};
 		592FD0812068826600AC623C = {
@@ -113,6 +134,7 @@
 				592FD08D2068826600AC623C /* AppDelegate.swift */,
 				592FD08F2068826600AC623C /* ViewController.swift */,
 				594EC283207B4A3000115C81 /* PAOImages-Bridging-Header.h */,
+				59242D6420EC6B6A009A33F6 /* CustomerPods */,
 				5931B141207C4DD800D85DF5 /* Lib */,
 				594EC276207B492200115C81 /* Utils */,
 				592FD0B42068F1DA00AC623C /* Source */,
@@ -226,6 +248,10 @@
 			children = (
 				594EC2A8207B57AD00115C81 /* PAOTopToolView.swift */,
 				594EC2AA207B6DD400115C81 /* PAOToolCollectionViewCell.swift */,
+				59242D6A20ECB933009A33F6 /* PAOADTools.swift */,
+				59187B16211D31CE0007EB0D /* PAOCustomerCollectionViewCell.swift */,
+				59187B1A211D36650007EB0D /* PAOAVPlayerViewController.swift */,
+				59187B1C211D387D0007EB0D /* GFAVPlayerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -233,6 +259,7 @@
 		92B4C53052F210ECA2D954B5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				59187B18211D36350007EB0D /* AVFoundation.framework */,
 				3AC6039E3F2A6B8ECAF4FCC0 /* libPods-PAOImages.a */,
 			);
 			name = Frameworks;
@@ -339,6 +366,8 @@
 				592FD0AE2068917500AC623C /* PAOBasicModel.swift in Sources */,
 				594EC27D207B492200115C81 /* CIImage+PAOImageUtils.m in Sources */,
 				5931B143207C4E3000D85DF5 /* PAOAddColor.swift in Sources */,
+				59187B17211D31CE0007EB0D /* PAOCustomerCollectionViewCell.swift in Sources */,
+				59242D6920EC71FA009A33F6 /* PAOSlider.swift in Sources */,
 				592FD0B32068CB2000AC623C /* Config.swift in Sources */,
 				5931B145207C5DE000D85DF5 /* PAOAddString.swift in Sources */,
 				592FD0902068826600AC623C /* ViewController.swift in Sources */,
@@ -346,9 +375,12 @@
 				598E92DC20E0C2D3009F631C /* PAOEditViewController.swift in Sources */,
 				594EC2A6207B571900115C81 /* PAOMessageViewController.swift in Sources */,
 				594EC27E207B492200115C81 /* UIImage+PAOImageUtils.m in Sources */,
+				59187B1B211D36650007EB0D /* PAOAVPlayerViewController.swift in Sources */,
 				592FD0B0206899AC00AC623C /* PAOImageView.swift in Sources */,
 				592FD0A720688CC700AC623C /* BasicViewController.swift in Sources */,
 				592FD0AC20688F7000AC623C /* FilterModel.swift in Sources */,
+				59242D6B20ECB933009A33F6 /* PAOADTools.swift in Sources */,
+				59187B1D211D387D0007EB0D /* GFAVPlayerView.swift in Sources */,
 				592FD0A5206883D400AC623C /* UIView.swift in Sources */,
 				592FD08E2068826600AC623C /* AppDelegate.swift in Sources */,
 				594EC2A9207B57AD00115C81 /* PAOTopToolView.swift in Sources */,

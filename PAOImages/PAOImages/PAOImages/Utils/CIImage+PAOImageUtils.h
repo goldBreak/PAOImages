@@ -5,6 +5,10 @@
 //  Created by xsd on 2018/3/6.
 //  Copyright © 2018年 com.GF. All rights reserved.
 //
+//
+//  官网滤镜
+//  https://developer.apple.com/library/archive/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/uid/TP30000136-SW29
+//
 
 #import <CoreImage/CoreImage.h>
 #import <UIKit/UIKit.h>
@@ -535,6 +539,11 @@
  */
 - (CIImage *)noirEffectImage;
 
+
+- (CIImage *)CILineOverlaySource;
+
+
+- (CIImage *)CIBumpDistortionLinearSource;
 
 - (CIImage *)edgedJudgeWithInstance:(CGFloat)inputIntensity;
 #pragma mark - 公共模块

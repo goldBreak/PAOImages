@@ -1,0 +1,6 @@
+module Pods_PAOImages [system] {
+  umbrella header "Pods-PAOImages-umbrella.h"
+
+  export *
+  module * { export * }
+}

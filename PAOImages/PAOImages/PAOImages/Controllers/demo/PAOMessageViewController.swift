@@ -18,7 +18,7 @@ class PAOMessageViewController: PAOBasicViewController,toolSelectedProtocol {
     
     //工作区域
     lazy var contentView : UIView = {
-       
+        
         var frame = CGRect(x: 0, y: self.toolView.maxY + 20.0, width: Config.kScreenWidth, height: Config.kScreenHeight - self.toolView.maxY - 20.0)
         
         var view = UIView(frame: frame)
@@ -36,12 +36,16 @@ class PAOMessageViewController: PAOBasicViewController,toolSelectedProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
-       
+        
+        self.configDic = [StaticString.NAVI_HIDDEN:false]
+        
         self.view.addSubview(self.toolView)
         self.view.addSubview(self.contentView)
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
     
     //#param : 设置图片
     func setImage(with image:UIImage) {
@@ -68,6 +72,7 @@ class PAOMessageViewController: PAOBasicViewController,toolSelectedProtocol {
     }
 }
 
+//点击事件和长按事件
 extension PAOMessageViewController : PAOImageProtocol {
     
     func selfDidSelected(_ view: PAOImageView) {
@@ -76,7 +81,7 @@ extension PAOMessageViewController : PAOImageProtocol {
         }
         self.currentSelectedImage = view
         self.currentSelectedTag = self.imageViewArray.indexOfObjectIdentical(to: view)
-
+        self.currentSelectedImage?.selected = true
         self.contentView.insertSubview(self.currentSelectedImage!, aboveSubview: self.contentView.subviews.last!)
     }
     
@@ -93,28 +98,23 @@ extension PAOMessageViewController:UINavigationControllerDelegate,UIImagePickerC
     
     //toolSelectedProtocol
     func itemDidSelected(selName: String) {
-        if selName.elementsEqual("文件") {
+        if selName.elementsEqual("相册") {
             //添加文件
-            let action_camera = UIAlertAction(title: "摄像机", style: UIAlertActionStyle.cancel, handler: { (action) in
-               //打开摄像机
-                let imagePick = UIImagePickerController()
-                imagePick.delegate = self
-                imagePick.sourceType = .camera
-                self.present(imagePick, animated: true, completion: nil)
-            });
-            
-            let action_library = UIAlertAction(title: "相册", style: .default, handler: { (action) in
-               //打开相册
-                let imagePick = UIImagePickerController()
-                imagePick.delegate = self
-                imagePick.sourceType = .photoLibrary
-                self.present(imagePick, animated: true, completion: nil)
-            });
-            
-            let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
-            actionSheet.addAction(action_camera)
-            actionSheet.addAction(action_library)
-            self.present(actionSheet, animated: true, completion: nil)
+            let imagePick = UIImagePickerController()
+            imagePick.delegate = self
+            imagePick.sourceType = .photoLibrary
+            self.present(imagePick, animated: true, completion: nil)
+        } else if selName.elementsEqual("相机"){
+            let imagePick = UIImagePickerController()
+            imagePick.delegate = self
+            imagePick.sourceType = .camera
+            self.present(imagePick, animated: true, completion: nil)
+        } else if selName.elementsEqual("取消选中"){
+            if self.currentSelectedImage != nil {
+                self.currentSelectedImage?.selected = false
+            }
+            self.currentSelectedImage = nil
+            self.currentSelectedTag = -1
         }
     }
     
@@ -128,7 +128,7 @@ extension PAOMessageViewController:UINavigationControllerDelegate,UIImagePickerC
         
         self.dismiss(animated: true) {
             let image : UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-            self.setImage(with: image)
+            self.setImage(with: image.normalized())
         };
     }
     

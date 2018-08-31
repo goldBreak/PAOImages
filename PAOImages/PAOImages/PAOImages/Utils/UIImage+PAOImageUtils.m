@@ -387,6 +387,19 @@
     return [outPutImage dealImage];
 }
 
+- (UIImage *)CILineOverlaySource {
+    CIImage *ciimage = [self ciimage];
+    CIImage *outPutImage = [ciimage CILineOverlaySource];
+    
+    return [outPutImage dealImage];
+}
+
+- (UIImage *)CIBumpDistortionLinearSource {
+    CIImage *ciimage = [self ciimage];
+    CIImage *outPutImage = [ciimage CIBumpDistortionLinearSource];
+    
+    return [outPutImage dealImage];
+}
 #pragma mark - 公共模块
 - (CIImage *)ciimage {
     
@@ -399,8 +412,6 @@
 }
 
 - (UIImage *)normalizedImage {
-    
-    //    if (self.imageOrientation == UIImageOrientationUp) return self;
     
     UIGraphicsBeginImageContextWithOptions(self.size, NO, self.scale);
     [self drawInRect:(CGRect){0, 0, self.size}];

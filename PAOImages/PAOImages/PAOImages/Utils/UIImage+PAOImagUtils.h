@@ -34,5 +34,5 @@
  @param size 大小
  @return image
  */
-+ (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size;
+//+ (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size;
 @end

@@ -11,5 +11,4 @@ import UIKit
 class PAOBasicViewController: UIViewController {
     //basic
     var configDic : NSDictionary?
-    
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class Config {
     
     static let kScreenWidth : CGFloat = UIScreen.main.bounds.size.width
@@ -24,7 +25,24 @@ class Config {
     static let kDeviceTopHeight : CGFloat = {
         return kDeviceToolStatue + kDeviceBarHeight
     }() //整个导航栏高度
+    
+    static let evnment : evn_config = .development
+    
+    static let k_main_url : String = {
+        if (Config.evnment == .development) {
+            return "development.cent"
+        } else {
+            return "lsajs"
+        }
+    }()
 }
+
+
+enum evn_config {
+    case development
+    case online
+}
+
 
 
 class StaticString {
