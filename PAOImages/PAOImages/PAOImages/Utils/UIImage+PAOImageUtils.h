@@ -573,6 +573,9 @@
 
 
 - (UIImage *)CIBumpDistortionLinearSource;
+
+- (UIImage *) CICategoryColorEffect;
+
 #pragma mark - 公共模块
 /**
  *  @author Gaof, 16-07-20 15:07:19

@@ -546,6 +546,15 @@
 - (CIImage *)CIBumpDistortionLinearSource;
 
 - (CIImage *)edgedJudgeWithInstance:(CGFloat)inputIntensity;
+
+/**
+ *  @author Gaof, 2019-03-08
+ *
+ *  交叉颜色混合
+ *
+ *  @return ciimage
+ */
+- (CIImage *)CICategoryColorEffect;
 #pragma mark - 公共模块
 /**
  *  @author Gaof, 16-07-20 15:07:25

@@ -606,6 +606,34 @@
     [filter setValue:@0.6 forKey:kCIInputScaleKey];
     return filter.outputImage;
 }
+
+
+- (CIImage *)CICategoryColorEffect {
+    
+    CIFilter *filter = [CIFilter filterWithName:@"CIColorCrossPolynomial"];
+    
+    NSLog(@"%@",filter.attributes);
+    
+    const CGFloat red[] = {0.0,0.3,0.3,0.0,0.0,0.0,0.0,0.0,0.0,0.0};
+    CIVector *redVect = [CIVector vectorWithValues:red count:10];
+    
+    const CGFloat blue[] = {0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0};
+    CIVector *blueVect = [CIVector vectorWithValues:blue count:10];
+    
+    const CGFloat green[] = {0.0,0.0,0.0,0.0,0.5,0.0,0.0,0.0,0.5,0.0};
+    CIVector *greenVect = [CIVector vectorWithValues:green count:10];
+    
+    [filter setValue:self forKey:kCIInputImageKey];
+    
+    [filter setValue:redVect forKey:@"inputRedCoefficients"];
+    
+//    [filter setValue:blueVect forKey:@"inputBlueCoefficients"];
+    
+//    [filter setValue:greenVect forKey:@"inputGreenCoefficients"];
+    
+    return filter.outputImage;
+}
+
 #pragma mark - 公共模块
 - (UIImage *)dealImage {
     

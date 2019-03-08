@@ -1,4 +1,4 @@
-module Pods_PAOImages [system] {
+module Pods_PAOImages {
   umbrella header "Pods-PAOImages-umbrella.h"
 
   export *

@@ -47,7 +47,7 @@ class PAOEditViewController: PAOBasicViewController {
         self.view.backgroundColor = UIColor.lightGray
         
 //        let rightButton
-        let image : UIImage = (self.originImage!.ciBumpDistortionLinearSource())!;
+        let image : UIImage = (self.originImage!.ciCategoryColorEffect())!;
         
         self.view.addSubview(self.bgView);
         self.contentView = PAOImageView(image: image, frame: self.view.frame)

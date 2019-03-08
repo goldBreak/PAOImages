@@ -7,7 +7,7 @@ DEPENDENCIES:
   - SnapKit
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - MBProgressHUD
     - SnapKit
 
@@ -17,4 +17,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 2984c0bf0663bca4d45c93cc227b1a99e6f56ae0
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.3

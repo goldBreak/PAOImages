@@ -400,6 +400,14 @@
     
     return [outPutImage dealImage];
 }
+
+- (UIImage *) CICategoryColorEffect {
+    
+    CIImage *ciimage = [self ciimage];
+    CIImage *outPutImage = [ciimage CICategoryColorEffect];
+    
+    return [outPutImage dealImage];
+}
 #pragma mark - 公共模块
 - (CIImage *)ciimage {
     
