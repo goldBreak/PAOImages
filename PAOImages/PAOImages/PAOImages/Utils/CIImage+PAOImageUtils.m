@@ -627,9 +627,9 @@
     
     [filter setValue:redVect forKey:@"inputRedCoefficients"];
     
-//    [filter setValue:blueVect forKey:@"inputBlueCoefficients"];
+    [filter setValue:blueVect forKey:@"inputBlueCoefficients"];
     
-//    [filter setValue:greenVect forKey:@"inputGreenCoefficients"];
+    [filter setValue:greenVect forKey:@"inputGreenCoefficients"];
     
     return filter.outputImage;
 }
