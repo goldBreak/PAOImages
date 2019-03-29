@@ -47,10 +47,18 @@ class PAOEditViewController: PAOBasicViewController {
         self.view.backgroundColor = UIColor.lightGray
         
 //        let rightButton
-        let image : UIImage = (self.originImage!.ciCategoryColorEffect())!;
+        
         
         self.view.addSubview(self.bgView);
-        self.contentView = PAOImageView(image: image, frame: self.view.frame)
+        self.contentView = PAOImageView(image: self.originImage!, frame: self.view.frame)
+        DispatchQueue.global().async {
+            let image : UIImage = (self.originImage!.ciCategoryColorEffect())!;
+            DispatchQueue.main.async {
+                self.contentView.image = image
+            }
+            
+        }
+        
         self.contentView.selected = true
         self.bgView.addSubview(self.contentView)
 
